@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מיאר קאסם | תיק עבודות</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --dark:#0f172a;
+      --text:#243043;
+      --muted:#667085;
+      --brand:#2563eb;
+      --brand2:#7c3aed;
+      --soft:#eaf1ff;
+      --border:#e5e7eb;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Heebo',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;}
+    a{text-decoration:none;color:inherit;}
+    .container{width:min(1120px,92%);margin:auto;}
+    header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+    .logo{font-weight:800;color:var(--dark);font-size:22px;}
+    .menu{display:flex;gap:22px;align-items:center;color:#475467;font-weight:500;}
+    .menu a:hover{color:var(--brand);}
+    .hero{padding:90px 0 70px;background:radial-gradient(circle at top left,#dbeafe 0,#f6f8fb 34%,#f6f8fb 100%);}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center;}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:#eef4ff;color:#1d4ed8;border:1px solid #d6e4ff;padding:8px 14px;border-radius:999px;font-weight:700;margin-bottom:18px;}
+    h1{font-size:clamp(42px,7vw,72px);line-height:1.05;color:var(--dark);letter-spacing:-1px;margin-bottom:18px;}
+    .subtitle{font-size:clamp(20px,3vw,29px);font-weight:700;color:#344054;margin-bottom:18px;}
+    .hero p{font-size:19px;color:#475467;max-width:690px;margin-bottom:30px;}
+    .actions{display:flex;gap:14px;flex-wrap:wrap;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border-radius:14px;font-weight:800;transition:.25s;border:1px solid transparent;}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:white;box-shadow:0 14px 30px rgba(37,99,235,.25);}
+    .btn-primary:hover{transform:translateY(-2px);}
+    .btn-outline{background:white;border-color:var(--border);color:#344054;}
+    .btn-outline:hover{border-color:#b5c7ff;color:var(--brand);}
+    .profile-card{background:rgba(255,255,255,.8);border:1px solid var(--border);border-radius:32px;padding:28px;box-shadow:0 18px 50px rgba(15,23,42,.08);}
+    .photo{height:360px;border-radius:26px;background:linear-gradient(135deg,#dbeafe,#ede9fe);display:flex;align-items:center;justify-content:center;color:#475467;text-align:center;padding:30px;font-weight:700;margin-bottom:20px;}
+    .contact-mini{display:grid;gap:10px;color:#475467;}
+    section{padding:78px 0;}
+    .section-title{margin-bottom:34px;text-align:center;}
+    .section-title h2{font-size:38px;color:var(--dark);margin-bottom:8px;}
+    .section-title p{color:var(--muted);font-size:18px;}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;box-shadow:0 12px 34px rgba(15,23,42,.055);}
+    .card h3{font-size:22px;color:var(--dark);margin-bottom:9px;}
+    .card p{color:#5b6678;}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .project{overflow:hidden;background:white;border:1px solid var(--border);border-radius:26px;box-shadow:0 14px 38px rgba(15,23,42,.06);}
+    .project-img{height:190px;background:linear-gradient(135deg,#eef4ff,#f5f3ff);display:flex;align-items:center;justify-content:center;text-align:center;color:#667085;font-weight:800;padding:18px;}
+    .project-body{padding:24px;}
+    .project h3{color:var(--dark);font-size:23px;margin-bottom:8px;}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0;}
+    .tag{background:#f2f4f7;border:1px solid #e4e7ec;color:#475467;padding:5px 10px;border-radius:999px;font-size:14px;font-weight:700;}
+    .project-link{color:var(--brand);font-weight:800;}
+    .skills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+    .skill{background:white;border:1px solid var(--border);padding:12px 18px;border-radius:999px;font-weight:800;color:#344054;box-shadow:0 8px 22px rgba(15,23,42,.045);}
+    .timeline{display:grid;gap:18px;max-width:850px;margin:auto;}
+    .item{background:white;border:1px solid var(--border);border-radius:22px;padding:22px;}
+    .item strong{color:var(--dark);font-size:20px;}
+    .contact{background:var(--dark);color:white;text-align:center;}
+    .contact .section-title h2{color:white;}
+    .contact .section-title p{color:#cbd5e1;}
+    .contact-box{background:#111c33;border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:34px;max-width:780px;margin:auto;}
+    .contact-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:22px;}
+    .contact-links a{background:white;color:var(--dark);padding:12px 18px;border-radius:14px;font-weight:800;}
+    footer{padding:26px;text-align:center;color:#667085;background:white;border-top:1px solid var(--border);}
+    @media(max-width:900px){.hero-grid,.cards,.projects{grid-template-columns:1fr}.menu{display:none}.hero{text-align:center}.actions{justify-content:center}.photo{height:270px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">מיאר קאסם</div>
+      <nav class="menu">
+        <a href="#about">עליי</a>
+        <a href="#projects">פרויקטים</a>
+        <a href="#skills">כלים</a>
+        <a href="#contact">יצירת קשר</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge">תיק עבודות אישי</span>
+          <h1>מיאר קאסם</h1>
+          <div class="subtitle">Instructional Designer | eLearning Developer | Learning Implementation Specialist</div>
+          <p>
+            מפתחת למידה, תוכן והטמעה עם ניסיון בפיתוח קורסים דיגיטליים, לומדות אינטראקטיביות ותהליכי למידה מתקדמים.
+מתמחה בפיתוח והטמעת פתרונות למידה דיגיטליים באמצעות Storyline, Open edX, HTML/CSS וכלי AI מתקדמים.
+
+בעלת ניסיון ביצירת חוויות למידה אינטראקטיביות, הפקת תכנים דיגיטליים, פיתוח משחקי למידה, כתיבת תסריטים לסרטוני הדרכה והטמעת מערכות ותהליכים דיגיטליים עבור מגוון משתמשים וקהלי יעד.
+            
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#projects">לצפייה בפרויקטים</a>
+            <a class="btn btn-outline" href="#contact">יצירת קשר</a>
+          </div>
+        </div>
+
+        <aside class="profile-card">
+
+          <img src="images/profile.jpeg"
+               alt="מיאר קאסם"
+               style="
+               width:100%;
+               height:360px;
+               object-fit:cover;
+               border-radius:26px;
+               margin-bottom:20px;
+               box-shadow:0 10px 25px rgba(0,0,0,0.15);
+          ">
+        
+          <div class="contact-mini">
+            <div><strong>אימייל:</strong> miarf142@gmail.com</div>
+            <div><strong>טלפון:</strong> 058-7414825</div>
+            <div><strong>אזור:</strong> צפון / היברידי / עבודה מהבית</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>עליי</h2>
+          <p>אני עוסקת בפיתוח למידה, הפקת תוכן והטמעת מערכות למידה דיגיטליות מתוך שילוב בין יצירתיות, חשיבה טכנולוגית וחוויית משתמש.
+
+            במהלך השנים פיתחתי קורסים דיגיטליים, לומדות אינטראקטיביות, משחקי למידה ותכנים חווייתיים במגוון פלטפורמות וכלים מתקדמים.
+            
+            אני מתמחה בליווי תהליכי הטמעה, התאמת פתרונות למידה למשתמשים, הנגשת תהליכים מורכבים בצורה ברורה וחווייתית ועבודה עם טכנולוגיות חדשניות לשיפור חוויית הלמידה.</p>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <h3>פיתוח למידה דיגיטלית</h3>
+            <p>
+              <ul>
+                <li>
+                  פיתוח קורסים דיגיטליים
+                </li>
+                <li>
+                  פיתוח לומדות אינטראקטיביות
+                </li>
+                <li>
+                  יצירת חוויות למידה מתקדמות
+                </li>
+                <li>
+                  פיתוח תרגולים ופעילויות אינטראקטיביות
+                </li>
+              </ul>
+             </p>
+          </div>
+          <div class="card">
+            <h3>הטמעת מערכות ותהליכים</h3>
+            <p>ליווי משתמשים, הנגשת תהליכים, עבודה עם מערכות למידה ופלטפורמות דיגיטליות, ומתן מענה ברור ומדויק לצורכי המשתמשים.</p>
+          </div>
+          <div class="card">
+            <h3>AI & Innovation</h3>
+            <p>
+            <ul>
+            <li>
+            שילוב כלי AI בתהליכי פיתוח למידה
+            </li>
+            <li>
+              יצירת תוכן באמצעות AI
+            </li>
+            <li>
+              ייעול תהליכי עבודה דיגיטליים
+            </li>
+            <li>
+              חדשנות טכנולוגית בחוויית הלמידה
+            </li>
+            </ul>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>פרויקטים נבחרים</h2>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <div class="project-img">
+              <img src="images/openedx.png"
+                   alt="Open edX"
+                   style="width:100%;height:190px;object-fit:cover;">
+            </div>
+            <div class="project-body">
+              <h3>Open edX Digital Courses</h3>
+              <p>פיתוח והטמעת קורסים דיגיטליים אינטראקטיביים בפלטפורמת Open edX, כולל שילוב HTML/CSS, פעילויות אינטראקטיביות, תרגולים ותוכן חווייתי.</p>
+              <div class="tags"><span class="tag">Open edX</span><span class="tag">HTML/CSS</span><span class="tag">LMS</span></div>
+              <a class="project-link" href="#"></a>
+            </div>
+          </article>
+
+
+          <article class="project">
+            <div class="project-img">
+              <img src="images/game.png"
+                   alt="משחקי למידה"
+                   style="width:100%;height:190px;object-fit:cover;">
+            </div>
+            <div class="project-body">
+              <h3>משחקי למידה ותוכן חווייתי</h3>
+              <p>פיתוח רעיונות, תוכן ותסריטים למשחקי למידה ולפעילויות דיגיטליות שמייצרות מעורבות וחוויה.</p>
+              <div class="tags"><span class="tag">Game Based Learning</span><span class="tag">Canva</span><span class="tag">AI</span></div>
+              <a class="project-link" href="#"></a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-img">סרטוני הדרכה</div>
+            <div class="project-body">
+              <h3>סרטוני הדרכה ותסריטים</h3>
+              <p>כתיבת תסריטים, בניית מבנה הדרכתי, עריכת סרטונים והנגשת תהליכים בצורה קצרה וברורה.</p>
+              <div class="tags"><span class="tag">Camtasia</span><span class="tag">Script Writing</span><span class="tag">Video</span></div>
+              <a class="project-link" href="#">הוסיפי כאן קישור לפרויקט</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-img">
+              <img src="images/ai.png"
+                   alt="AI Content"
+                   style="width:100%;height:190px;object-fit:cover;">
+            </div>
+            <div class="project-body">
+              <h3>פיתוח תוכן בעזרת AI</h3>
+              <p>יצירת תכנים, רעיונות, תרגולים, תסריטים ועזרי למידה באמצעות כלי AI מתקדמים.</p>
+              <div class="tags"><span class="tag">ChatGPT</span><span class="tag">Gemini</span><span class="tag">Copilot</span></div>
+              <a class="project-link" href="#">הוסיפי כאן קישור לפרויקט</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-img">   עיצוב מצגות</div>
+            <div class="project-body">
+              <h3>עיצוב מצגות וחומרי למידה</h3>
+              <p>עיצוב מצגות, מסמכי הדרכה וחומרים חזותיים ללמידה דיגיטלית ולהטמעת תהליכים.</p>
+              <div class="tags"><span class="tag">Canva</span><span class="tag">PowerPoint</span><span class="tag">Design</span></div>
+              <a class="project-link" href="#">הוסיפי כאן קישור לפרויקט</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">
+          <h2>כלים וטכנולוגיות</h2>
+          <p>הכלים המרכזיים שאני עובדת איתם</p>
+        </div>
+        <div class="skills">
+          <span class="skill">Articulate Storyline</span>
+          <span class="skill">Open edX</span>
+          <span class="skill">HTML / CSS</span>
+          <span class="skill">Canva</span>
+          <span class="skill">Camtasia</span>
+          <span class="skill">LMS Platforms</span>
+          <span class="skill">ChatGPT</span>
+          <span class="skill">Gemini</span>
+          <span class="skill">Copilot</span>
+          <span class="skill">Microsoft Office</span>
+          <span class="skill">Google Workspace</span>
+          <span class="skill">Interactive Learning</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>ניסיון מקצועי</h2>
+          <p>תחומי העשייה המרכזיים שלי</p>
+        </div>
+        <div class="timeline">
+          <div class="item">
+            <strong>פיתוח למידה, תוכן והדרכה | 2018–היום</strong>
+            <p>פיתוח קורסים דיגיטליים, לומדות, תכנים אינטראקטיביים, תסריטים לסרטוני הדרכה, תרגולים וחוויות למידה מבוססות טכנולוגיה.</p>
+          </div>
+          <div class="item">
+            <strong>הטמעה וליווי משתמשים</strong>
+            <p>ליווי משתמשים בעבודה עם מערכות דיגיטליות, הנגשת תהליכים, התאמת תכנים לצורכי המשתמש ומתן פתרונות במהלך העבודה.</p>
+          </div>
+          <div class="item">
+            <strong>פיתוח רב־לשוני</strong>
+            <p>פיתוח, תרגום ולוקליזציה של תכנים בעברית, ערבית ואנגלית, תוך שמירה על שפה מקצועית וחוויית משתמש מותאמת.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div class="section-title">
+            <h2>יצירת קשר</h2>
+            <p>זמינה למשרות בתחום פיתוח למידה, הטמעה, eLearning ועבודה היברידית / מהבית</p>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:miarf142@gmail.com">שליחת מייל</a>
+            <a href="tel:0587414825">טלפון</a>
+            <a href="https://www.linkedin.com/in/miar-qasem-4a0320217">LinkedIn</a>
+            <a href="https://www.facebook.com/share/18q79NsDf6/?mibextid=wwXIfr">Facebook</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 מיאר קאסם | Portfolio
+  </footer>
+</body>
+</html>
